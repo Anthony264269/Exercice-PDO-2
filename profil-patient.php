@@ -4,7 +4,7 @@ require_once('./connect.php');
 $request = $database->query('SELECT * FROM patients');
 $patients = $request->fetchAll();
 foreach ($patients as $patient) {
-    echo ('<br>'.$patient['lastname'] . " " . $patient['firstname'] .'<br>');
+    echo ('<br>'.$patient['lastname'] . " " . $patient['firstname'] ."<br>"." Né(e) le: ".$patient['birthdate'] ."<br>"." Téléphone: ".$patient['phone'] ."<br>"." Email: ".$patient['mail'].'<br>');
 }
 ?>
 
@@ -19,9 +19,8 @@ foreach ($patients as $patient) {
     <title>Document</title>
 </head>
 
-<body id="body-liste-patient">
-<a href="./ajout-patient.php">Inscription patient</a>
-<a href="./profil-patient.php">Profil patient</a>    
+<body id="body-profil-patients">
+
 <a class="navbar-brand" href="./index.php">Retour page d'accueil</a>
     
     
