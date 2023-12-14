@@ -7,8 +7,10 @@ try {
 
     $password = '';
 
-    $db = new PDO($dsn, $username, $password);
-} catch (Exception $message) {
+    $database = new PDO($dsn, $username, $password);
+    $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "la connexion a bien ete etablie";
+} catch (PDOException $message) {
 
     echo "il y a un problème <br>" . $message;
 }

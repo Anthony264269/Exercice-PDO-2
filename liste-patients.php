@@ -1,7 +1,11 @@
 <?php
 // 1 er étape
 require_once('./connect.php');
-
+$request = $database->query('SELECT * FROM patients');
+$patients = $request->fetchAll();
+foreach ($patients as $patient) {
+    echo ('<br>'.$patient['lastname'] . " " . $patient['firstname'] ." ".$patient['birthdate'] ." ".$patient['phone'] ." ".$patient['mail'].'<br>');
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,25 +19,7 @@ require_once('./connect.php');
 </head>
 
 <body>
-    <form action="bd.php" method="POST">
-        <label>Lastname:</label>
-        <input name="Lastname" id="Lastname" type="text" />
-
-        <label>Firstname:</label>
-        <input name="Firstname" id="Firstname" type="text" />
-
-        <label>Birthdate:</label>
-        <input name="Birthdate" id="Birthdate" type="date" />
-
-        <label>Phone:</label>
-        <input name="Phone" id="Phone" type="tel" />
-
-        <label>Mail:</label>
-        <input name="Mail" id="Mail" type="mail" />
-
-        <input type="submit" value="envoyer">
-        <input type="reset" value="reset">
-        <a class="navbar-brand" href="./index.php">Retour page d'accueil</a>
+<a href="./ajout-patient.php">Inscription patient</a>
         
     </form>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
