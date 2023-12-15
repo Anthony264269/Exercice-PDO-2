@@ -1,25 +1,29 @@
 <?php
 
+// var_dump($_POST);
+
 if (
-    isset($_POST['Lastname']) && !empty($_POST['Lastname']) &&
-    isset($_POST['Firstname']) && !empty($_POST['Firstname']) &&
-    isset($_POST['Birthdate']) && !empty($_POST['Birthdate']) &&
-    isset($_POST['Phone']) && !empty($_POST['Phone']) &&
-    isset($_POST['Mail']) && !empty($_POST['Mail'])
+    isset($_POST['lastname']) && !empty($_POST['lastname']) &&
+    isset($_POST['firstname']) && !empty($_POST['firstname']) &&
+    isset($_POST['birthdate']) && !empty($_POST['birthdate']) &&
+    isset($_POST['phone']) && !empty($_POST['phone']) &&
+    isset($_POST['mail']) && !empty($_POST['mail'])
 
 
 ) {
+
+    
     require_once('./connect.php');
 
     $requete = $database->prepare("INSERT INTO patients (lastname, firstname, birthdate, phone, mail) 
                     VALUES (:lastname,:firstname,:birthdate,:phone,:mail)");
 
     $result = $requete->execute([
-        'lastname' => $_POST['Lastname'],
-        'firstname' => $_POST['Firstname'],
-        'birthdate' => $_POST['Birthdate'],
-        'phone' => $_POST['Phone'],
-        'mail' => $_POST['Mail'],
+        'lastname' => $_POST['lastname'],
+        'firstname' => $_POST['firstname'],
+        'birthdate' => $_POST['birthdate'],
+        'phone' => $_POST['phone'],
+        'mail' => $_POST['mail'],
     ]);
 }
 
