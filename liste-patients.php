@@ -6,7 +6,7 @@ include_once('./partials/header.php');
 
 <body id="body-index">
     <main class="container-md">
-        <h2 class="d-flex justify-content-center mb-5 mt-5">Liste patients</h2>
+        <h2 class="d-flex justify-content-center mb-5 mt-5">Liste patients coucou</h2>
 
         <table class="table table-dark table-hover">
             <thead>
