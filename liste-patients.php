@@ -11,7 +11,7 @@ include_once('./partials/header.php');
         <table class="table table-dark table-hover">
             <thead>
                 <tr>
-
+                    <th scope="col">Id</th>
                     <th scope="col">Prénom</th>
                     <th scope="col">Nom</th>
                     <th scope="col"></th>
@@ -30,10 +30,10 @@ include_once('./partials/header.php');
                 foreach ($patients as $patient) { ?>
 
                     <tr>
-
+                        <td><?php echo $patient["id"] ?></td>
                         <td><?php echo $patient["firstname"] ?></td>
                         <td><?php echo $patient["lastname"] ?></td>
-                        <td><a href="">Plus d'information</a></td>
+                        <td><a href="./profil-personnel-patient.php?id=<?= $patient["id"]?>">Plus d'information</a></td>
                     <?php } ?>
     </main>
 </body>
